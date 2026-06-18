@@ -1,0 +1,139 @@
+================================================================
+   FDM DASHBOARD — PRESIDENT PRESENTATION
+   Field Defect Monitoring | Midterm Review
+================================================================
+
+
+────────────────────────────────────────────────────────────────
+SLIDE 1: THE PROBLEM & WHAT WE BUILT
+────────────────────────────────────────────────────────────────
+
+HEADLINE: From Hours of Manual Work to Instant Insights
+
+THE PROBLEM (BEFORE):
+Every customer repair generates data — but reading it meant
+downloading Excel files, building charts manually, and spending
+hours just to answer: "What's going wrong, and where?"
+
+THE SOLUTION (NOW):
+A live, browser-based dashboard that answers that question
+in seconds — automatically, every single day.
+
+WHAT IT COVERS:
+→ Defect rate tracked day-by-day and week-by-week
+→ Top symptoms, repair parts, locations, and service centers
+→ Domestic vs. Export market breakdown — side by side
+→ Built for any model launch, not just one phone
+
+
+────────────────────────────────────────────────────────────────
+SLIDE 2: 3-MONTH JOURNEY
+────────────────────────────────────────────────────────────────
+
+HEADLINE: Built, Tested, and Operational in 90 Days
+
+MONTH 1 — FOUNDATION
+→ Understood raw service center data structure
+→ Defined key metrics: defect rate, symptoms, repair parts, geography
+→ Built the data pipeline: reads, cleans, and organizes data automatically
+
+MONTH 2 — CORE DASHBOARD
+→ Summary Page — defect rate vs. base model (Overall / Domestic / Export)
+→ Analysis Page — interactive charts: trends, hotspots, worst centers
+→ Improvement Page — tracks whether issues are actually getting better
+
+MONTH 3 — AUTOMATION & SCALE
+→ Fully generalized: any new model launch is ready in under 1 minute
+→ RPA integration: QINGS data flows in daily, no manual steps needed
+→ Color-coded alerts and auto-generated text summaries added
+
+
+────────────────────────────────────────────────────────────────
+SLIDE 3: WHERE WE STAND TODAY
+────────────────────────────────────────────────────────────────
+
+HEADLINE: Live and Running Across Multiple Models
+
+COMPLETED ✓
+→ Dashboard fully operational — S26U, A37, and A57 all live
+→ Summary, Analysis, and Improvement pages complete
+→ Daily data refresh integrated with latest QINGS data
+
+IN PROGRESS
+→ Alert system for sudden defect spikes (in development)
+→ Single-screen view comparing all models simultaneously
+→ Ongoing UI testing and refinement
+
+
+────────────────────────────────────────────────────────────────
+SLIDE 4: KEY INSIGHTS GAINED
+────────────────────────────────────────────────────────────────
+
+HEADLINE: What This Project Taught Us
+
+1. REAL DATA IS MESSY — AND THAT'S SOLVABLE
+   Service center files had missing values, broken formats, and mixed
+   languages. Building auto-cleanup into the pipeline eliminated this
+   problem permanently — not just for today, but for every future model.
+
+2. GENERALIZATION IS A FORCE MULTIPLIER
+   What once required weeks of manual report-building per model
+   now takes under a minute. Every future launch inherits the full
+   dashboard with zero extra effort.
+
+3. PLAIN-LANGUAGE SUMMARIES DRIVE FASTER ACTION
+   Auto-generated remarks like "Camera and Display are top defects"
+   proved more actionable than charts alone — especially for teams
+   not working directly with data every day.
+
+
+────────────────────────────────────────────────────────────────
+SLIDE 5: CHALLENGES & HOW WE SOLVED THEM
+────────────────────────────────────────────────────────────────
+
+HEADLINE: Challenges Faced — and Overcome
+
+CHALLENGE 1: INCONSISTENT RAW DATA
+Data arrived with broken column names, missing entries, and foreign
+language text mixed in.
+→ SOLVED: Automatic cleaning runs every time data loads. Zero manual fixes.
+
+CHALLENGE 2: PERFORMANCE AT SCALE
+More data = slower load times, risking a sluggish dashboard.
+→ SOLVED: Smart data caching keeps every page near-instant.
+→ NEXT: Database backend planned as data volumes grow.
+
+CHALLENGE 3: MANUAL DATA UPDATES
+Someone had to manually place files for the dashboard to refresh.
+→ SOLVED: RPA pipeline now pushes fresh QINGS data daily, automatically.
+
+
+────────────────────────────────────────────────────────────────
+SLIDE 6: BUSINESS IMPACT
+────────────────────────────────────────────────────────────────
+
+HEADLINE: Faster Decisions. Fewer Defects. Zero Rework.
+
+IMPACT 1 — SPEED
+Spotting a rising defect trend: Days → Seconds.
+Quality teams can act before issues reach more customers.
+
+IMPACT 2 — CONSISTENCY
+Every model launch now gets the same standardized dashboard —
+automatically. No variation. No human error. No rebuild.
+
+IMPACT 3 — SCALE
+One tool. Every model. Forever.
+Future Galaxy launches plug into this system in minutes —
+and leadership gains year-over-year quality visibility
+across the entire product line.
+
+CLOSING LINE:
+This is not a one-time dashboard.
+It is a permanent quality intelligence system —
+built once, serving every model launch going forward.
+
+
+================================================================
+END
+================================================================
