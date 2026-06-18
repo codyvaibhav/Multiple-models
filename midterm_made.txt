@@ -1,0 +1,78 @@
+Slides:
+
+1.
+Previously Used Practices:
+Every time a customer brings their phone to a service center for a repair, that data gets recorded. But until now, making sense of that data required manual effort - downloading Excel files, building charts by hand and spending hours just trying to understand what is going wrong and where.
+
+Objective:
+Build smart, interactive and automated system that automatically fetches QINGS data and prepares summary and dashboards that gets refreshed daily. The team can open it in a browser and instantly see in real time how a new model is performing in the field compared to the previous model.
+
+Scope:
+Tracks defect rate day by day and week by week
+Monitors top 5 symptom types, top repair parts used, top sub-symptoms, top locations, etc.
+Designed to work for any model launch not just one specific model
+Provides summary, analysis and improvement of the model at one place
+
+2.
+MONTH 1: UNDERSTANDING THE DATA 
+Analyzed the structure of service center data coming in from Excel files
+Identified all the key metrics that needed to be tracked: defect rate, symptom group, repair parts, handling types and geographic spread
+Set up the data pipeline process that automatically reads, cleans and organizes the raw data for the dashboard to use
+Defined the comparison framework: new model (S26U) vs base model (S25U)
+
+MONTH 2: BUILDING THE CORE DASHBOARD MODULES
+Built the Summary Page: A clean, high-level view showing how the new model compares to the old one in terms of defect rate split into Overall, Domestic and Export markets.
+Built the Analysis Page: A detailed view with multiple interactive charts showing symptom trends, repair part breakdowns, geographic hotspots and worst-performing service centers
+Built the Improvement Page: A dedicated section to track which issues are being actively worked on and whether defect rates are trending in the right direction
+
+3.
+MONTH 3: POLISH, GENERALIZATION AND AUTOMATION
+Made the dashboard fully generalized and automated which works for any new phone launch
+Improved the visual design by giving professional layout with the FDM branding, color-coded improvement indicators (green for improvement, red for worsening)
+Added smart auto-remarks that automatically identify and display the necessary information
+Integrated RPA that sends new data from QINGS daily and the system is refreshed automatically for every model
+
+4.
+THE PROJECT IS CURRENTY AT ADVANCED STAGE WITH:
+Complete Implementation of the system with Summary, Analysis and Improvement Pages.
+Fully functional integrated interface made with latest QINGS raw data.
+Made for 2-3 Models
+
+
+WHAT IS STILL IN PROGRESS:
+Automating the data refresh process (currently requires manual file updates)
+On going testing and refinement of user interface.
+Expanding to track multiple models simultaneously on one screen
+Building an alert system for sudden spikes in defect rate
+
+5.
+1. DATA UNDERSTANDING : Working on actual raw data first time. Understanding raw inconsistent data, how to clean and 		interpret different KPIs and columns.
+
+2. GENERALIZATION SAVES ENORMOUS TIME : Generalizing scripts and code enables to automate reports and dashboard 		for new model in minutes with no extra effort.
+
+3. IMPORTANCE OF AUTO-GENERATED REMARKS: Adding automatic text summaries making easier to understand and 			analyze from visual charts alone.
+
+
+6.
+1. INCONSISTENT INPUT DATA
+Challenge : Service center data arrives in Excel files that are not always in a clean format. Column names contain line breaks, some entries are missing, numbers are formatted as text, and occasionally characters from other languages appear in the data.
+Way Forward : Built automatic data cleaning steps that run every time the data is loaded - fixing formats, filling in missing values, and converting inconsistent entries to a standard form.
+2. MAKING THE DASHBOARD FAST WITH LARGE DATA
+Challenge : As the number of days of data grows, loading and processing everything on every page visit would make the dashboard feel slow.
+Way Forward: As data volume grows, explore moving towards database backend instead of direct Excel reading.
+3. MANUAL DATA UPDATES
+Challenge: Currently, a team member must manually download the Excel files and place them in the correct folder for the dashboard to pick up the latest data.
+Way Forward: Automate the data pipeline so the dashboard refreshes itself on a set schedule.
+
+7.
+OUTCOME 1 — FASTER RESPONSE TO QUALITY ISSUES
+Today: Identifying a rising defect trend could take days of manual data work.
+After This Project: The same identification happens in seconds through the dashboard. This means the engineering and quality teams can raise alerts and begin investigations days earlier, potentially stopping a widespread issue before it reaches more customers.
+
+OUTCOME 2 — STANDARDIZED REPORTING ACROSS ALL MODELS
+Previously, every new model required someone to build a new report manually, which meant the format and depth of reporting varied.
+With this dashboard: Every new model launch - no matter who handles it gets the same standardized, comprehensive view automatically. This removes human error and inconsistency from the reporting process entirely.
+
+OUTCOME 3 — SCALABILITY FOR FUTURE LAUNCHES
+The generalized architecture means this is not a one-time tool. Every future Samsung Galaxy model launch can plug into this same system with minimal setup. Over time, it becomes possible to compare trends not just between two models but across multiple generations - giving leadership longer-term visibility into whether product quality is improving or not.
+
