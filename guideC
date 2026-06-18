@@ -1,0 +1,90 @@
+================================================================
+  HOW TO UPDATE analysis.py AND improvement.py
+  (These files are too large to regenerate fully, but the
+   changes are identical in pattern — only ~5 lines each)
+================================================================
+
+CHANGE 1 — Function signature  (top of file)
+─────────────────────────────────────────────
+BEFORE:
+    def show():
+
+AFTER:
+    def show(cfg: dict):
+
+
+CHANGE 2 — Imports  (top of file)
+──────────────────────────────────
+BEFORE:
+    from config import (
+        main, base,
+        get_data,
+        get_base_data,
+        get_asrdata,
+        get_msclist
+    )
+
+AFTER:
+    from config import (
+        get_model_cfg,
+        get_data,
+        get_base_data,
+        get_asrdata,
+        get_msclist,
+    )
+
+
+CHANGE 3 — Remove st.set_page_config (if present inside show())
+────────────────────────────────────────────────────────────────
+DELETE this line if it exists inside show():
+    st.set_page_config(page_title="Analysis", page_icon=":bar_chart:")
+(set_page_config is now only in main.py)
+
+
+CHANGE 4 — Cached data loader  (inside show())
+───────────────────────────────────────────────
+BEFORE:
+    @st.cache_data
+    def load_all_data():
+        return (
+            get_data(),
+            get_base_data(),
+            get_asrdata(),
+            get_msclist()
+        )
+    df, df_base, df2, df3 = load_all_data()
+
+AFTER:
+    @st.cache_data
+    def load_all_data(main_model: str):
+        _cfg = get_model_cfg(main_model)
+        return (
+            get_data(_cfg),
+            get_base_data(_cfg),
+            get_asrdata(_cfg),
+            get_msclist(_cfg),
+        )
+    df, df_base, df2, df3 = load_all_data(cfg["main"])
+
+
+CHANGE 5 — Replace bare `main` / `base` variables
+───────────────────────────────────────────────────
+BEFORE:
+    fig.data[0].name = f"{main}"
+    fig.data[1].name = f"{base}"
+    ... any other use of bare `main` or `base` ...
+
+AFTER:
+    fig.data[0].name = cfg["main"]
+    fig.data[1].name = cfg["base"]
+
+TIP: Do a file-wide find-replace:
+  Find:     f"{main}"   →  Replace: cfg["main"]
+  Find:     f"{base}"   →  Replace: cfg["base"]
+  Find:     {main}      →  Replace: {cfg["main"]}   (inside f-strings)
+  Find:     {base}      →  Replace: {cfg["base"]}   (inside f-strings)
+
+
+================================================================
+  THAT'S IT. No other changes needed in analysis.py / improvement.py.
+================================================================
