@@ -1,0 +1,87 @@
+Yes, absolutely! The minimal approach is much simpler. You only touch 2 files (config.py and main.py) and make one small fix in each page file. Here's exactly what to do:
+
+Step 1 — config.py — Add 2 things (nothing else changes)
+Add the MODEL_REGISTRY dict and a set_model() function at the bottom of your existing config.py. Don't change anything else.
+python# ── Paste this at the BOTTOM of your existing config.py ──────────────────
+
+MODEL_REGISTRY = {
+    "S26U": {"base": "S25U", "n": 89},
+    "A37":  {"base": "A36",  "n": 59},
+    "A57":  {"base": "A56",  "n": 60},
+}
+
+def set_model(selected_model: str):
+    """Call this from main.py whenever the selectbox changes."""
+    global main, base, n, base_dir
+    global file_path, comparison_path_overall, comparison_path_domestic
+    global comparison_path_export, file_base_path, asrdata_path, marketing_name
+
+    entry    = MODEL_REGISTRY[selected_model]
+    main     = selected_model
+    base     = entry["base"]
+    n        = entry["n"]
+    base_dir = rf".\{main} Data\{n}days"
+
+    file_path                  = rf"{base_dir}\raw_main.xlsx"
+    comparison_path_overall    = rf"{base_dir}\overall.xlsx"
+    comparison_path_domestic   = rf"{base_dir}\domestic.xlsx"
+    comparison_path_export     = rf"{base_dir}\export.xlsx"
+    file_base_path             = rf"{base_dir}\raw_base.xlsx"
+    asrdata_path               = rf"{base_dir}\asr_compare.xlsx"
+    marketing_name             = f"Galaxy {main}"
+
+Step 2 — main.py — Add selectbox + call set_model()
+Find where you import config and where you render the FDM header. Add these 4 lines:
+pythonimport config  # make sure you import as module, not just "from config import ..."
+from config import MODEL_REGISTRY
+
+# ── Add this BEFORE the FDM header render ────────────────────────────────
+
+selected_model = st.selectbox(
+    "Select Model",
+    options=list(MODEL_REGISTRY.keys()),   # ["S26U", "A37", "A57"]
+    key="model_picker",
+)
+config.set_model(selected_model)           # ← this updates ALL paths in config
+That's it for main.py. Now config.main, config.base, config.file_path etc. are all updated before any page loads.
+
+Step 3 — Each page file (summary.py, analysis.py, improvement.py)
+Only 2 things to fix per page file:
+Fix 1 — Cache bust (so switching model actually loads new data)
+python# BEFORE
+@st.cache_data
+def load_data():
+    return get_data()
+
+df = load_data()
+
+# AFTER — add model as parameter so cache refreshes on switch
+@st.cache_data
+def load_data(model):        # ← model string is the cache key
+    return get_data()
+
+df = load_data(config.main)  # ← pass current model
+Fix 2 — Labels/titles that use main or base
+If you have anything like f"{main} vs {base}" in a chart title or heading, change it to read from the module:
+python# BEFORE
+st.markdown(f"{main} Model Comparison")
+
+# AFTER
+import config
+st.markdown(f"{config.main} Model Comparison")
+
+Why? When Python does from config import main, it copies the string value once at startup. config.main always reads the live current value.
+
+
+Why this works
+selectbox changes
+      ↓
+config.set_model("A37")  ← updates all global vars in config module
+      ↓
+page's get_data() runs   ← reads config.file_path which is now A37's path ✓
+page's cache key changes ← "A37" ≠ "S26U", so cache loads fresh data ✓
+page's config.main label ← reads live value "A37" ✓
+The data-loading functions (get_data, get_overall_comparison_data, etc.) already read from config's module-level globals at call time — so they update automatically. The only manual fixes are the cache key and any string labels.
+
+To add a 4th model in the future, just add one line to MODEL_REGISTRY in config.py:
+python"S25U": {"base": "S24U", "n": 75},
