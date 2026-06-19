@@ -17,4 +17,48 @@ Every time a customer brings their phone to a service center for a repair, that 
 
 
 
+================================================================
+   EDITED CONTENT — SCOPE & BEFORE/AFTER
+================================================================
+
+
+────────────────────────────────────────────────────────────────
+PREVIOUSLY USED PRACTICES
+────────────────────────────────────────────────────────────────
+
+Every time a customer brings their phone to a service center for
+a repair, that data gets recorded. But until now, making sense
+of that data required manual effort - downloading Excel files,
+building charts by hand and spending hours just trying to
+understand what is going wrong and where.
+
+
+────────────────────────────────────────────────────────────────
+AFTER THE PROJECT COMPLETION
+────────────────────────────────────────────────────────────────
+
+That same data now flows into a live, interactive dashboard
+automatically. No downloading files, no manual chart-building -
+the team simply opens a browser and instantly sees how the
+model is performing, what's going wrong, and where, in real time.
+
+
+────────────────────────────────────────────────────────────────
+SCOPE
+────────────────────────────────────────────────────────────────
+
+→ Tracks defect rate day by day and week by week
+→ Monitors top 5 symptom types, top repair parts used,
+   top sub-symptoms, top locations, etc.
+→ Currently built and live for one model - designed so it
+   can be extended to future model launches with minimal effort
+→ Provides summary, analysis, and improvement tracking for
+   the model, all in one place
+
+
+================================================================
+END
+================================================================
+
+
 
